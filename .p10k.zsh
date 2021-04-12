@@ -1531,10 +1531,13 @@
   }
 
   function prompt_my_cpu_temp() {
-    integer cpu_temp="$(</sys/class/thermal/thermal_zone0/temp) / 1000"
-#    integer cpu_temp="${$(/usr/local/bin/osx-cpu-temp)%%°*}"
+    integer cpu_temp=-1
+    [[ ! $(command -v osx-cpu-temp) ]] || { integer cpu_temp="${$(/usr/local/bin/osx-cpu-temp)%%°*}"; }
+    [[ ! -d /sys/class/thermal/thermal_zone0 ]] || { integer cpu_temp="$(</sys/class/thermal/thermal_zone0/temp) / 1000"; }    
 
-    if (( cpu_temp >= 80 )); then
+    if (( cpu_temp < 0 )); then
+      p10k segment -s OK -f white -t ""
+    elif (( cpu_temp >= 80 )); then
       p10k segment -s HOT  -f red    -t "${cpu_temp}"$'\uE339' -i $'\uF737'
     elif (( cpu_temp >= 60 )); then
       p10k segment -s WARM -f yellow -t "${cpu_temp}"$'\uE339' -i $'\uE350'

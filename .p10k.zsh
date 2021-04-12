@@ -110,7 +110,7 @@
     # load
     ram
     #public_ip
-    my_cpu_tmp
+    my_cpu_temp
   )
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.

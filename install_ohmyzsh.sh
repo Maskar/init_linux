@@ -18,4 +18,4 @@ sed -i 's/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"powerlevel10k\/powerlevel10k\"/
 echo "Set plugins..."
 sed -i 's/plugins=(git)/plugins=(safe-paste git zsh-completions zsh-autosuggestions zsh-syntax-highlighting)/' $HOME/.zshrc
 echo "Copy settings..."
-cp $HOME/init_linux/.p10k.zsh $HOME/
+cp $HOME/init_linux/p10k.zsh $HOME/.p10k.zsh

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+EXEC_HOME=$(dirname $0) # The folder that the script resides in
+
 echo "Installing required packages..."
 [[ ! -f $(command -v yum) ]] || sudo yum install -y util-linux-user zsh git curl
 [[ ! -f $(command -v apt) ]] || sudo apt install -y zsh git curl
@@ -22,13 +24,13 @@ cp $HOME/.zshrc $HOME/.zshrc.bak
 
 echo "Set theme powerlevel10k..."
 #echo "$(cat $HOME/init_linux/zshrc.top)"$'\n'"$(cat $HOME/.zshrc)" > $HOME/.zshrc
-cp $HOME/init_linux/zshrc.top $HOME/.zshrc
+cp $EXEC_HOME/zshrc.top $HOME/.zshrc
 cat $HOME/.zshrc.bak >> $HOME/.zshrc
-cat $HOME/init_linux/zshrc.end >> $HOME/.zshrc
+cat $EXEC_HOME/zshrc.end >> $HOME/.zshrc
 sed -i 's/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"powerlevel10k\/powerlevel10k\"/' $HOME/.zshrc
 
 echo "Set plugins..."
 sed -i 's/plugins=(git)/plugins=(safe-paste git zsh-completions zsh-autosuggestions zsh-syntax-highlighting)/' $HOME/.zshrc
 
 echo "Copy settings..."
-cp $HOME/init_linux/p10k.zsh $HOME/.p10k.zsh
+cp $EXEC_HOME/p10k.zsh $HOME/.p10k.zsh

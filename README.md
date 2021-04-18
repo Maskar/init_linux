@@ -1,5 +1,6 @@
-# Initialize Linux
-Scripts to initialize new linux environments with my preferred settings.
+# Initialize Linux with preferred settings
+
+A script to initialize fresh Linux environments with my preferred settings.
 
 * Installs zsh and some other required packages
 * Installs OhMyZSH

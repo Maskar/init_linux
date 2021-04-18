@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Installing required packaged..."
+echo "Installing required packages..."
 [[ ! -f $(command -v yum) ]] || sudo yum install -y util-linux-user zsh git curl
 [[ ! -f $(command -v apt) ]] || sudo apt install -y zsh git curl
 

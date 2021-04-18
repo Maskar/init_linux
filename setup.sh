@@ -24,13 +24,13 @@ cp $HOME/.zshrc $HOME/.zshrc.bak
 
 echo "Set theme powerlevel10k..."
 #echo "$(cat $HOME/init_linux/zshrc.top)"$'\n'"$(cat $HOME/.zshrc)" > $HOME/.zshrc
-cp $EXEC_HOME/zshrc.top $HOME/.zshrc
+cp $EXEC_HOME/config/zshrc.top $HOME/.zshrc
 cat $HOME/.zshrc.bak >> $HOME/.zshrc
-cat $EXEC_HOME/zshrc.end >> $HOME/.zshrc
+cat $EXEC_HOME/config/zshrc.end >> $HOME/.zshrc
 sed -i 's/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"powerlevel10k\/powerlevel10k\"/' $HOME/.zshrc
 
 echo "Set plugins..."
 sed -i 's/plugins=(git)/plugins=(safe-paste git zsh-completions zsh-autosuggestions zsh-syntax-highlighting)/' $HOME/.zshrc
 
 echo "Copy settings..."
-cp $EXEC_HOME/p10k.zsh $HOME/.p10k.zsh
+cp $EXEC_HOME/config/p10k.zsh $HOME/.p10k.zsh

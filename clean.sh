@@ -6,5 +6,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
     rm -fR $HOME/.oh-my-zsh
     rm -f $HOME/.zsh*
+    rm -f $HOME/.zcomp*
     rm -f $HOME/.p10k.zsh
 fi

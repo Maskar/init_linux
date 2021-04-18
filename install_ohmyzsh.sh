@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+[[ ! -f $(command -v yum) ]] || sudo yum install -y util-linux-user zsh git curl
+[[ ! -f $(command -v apt) ]] || sudo apt install -y zsh git curl
+
 [[ $(command -v zsh) ]] || {echo "Install ZSH first!"; exit 1;}
 [[ $(command -v curl) ]] || {echo "Install curl first!"; exit 1;}
 [[ $(command -v git) ]] || {echo "Install git first!"; exit 1;}

@@ -3,7 +3,7 @@
 EXEC_HOME=$(dirname $0) # The folder that the script resides in
 
 echo "Installing required packages..."
-[[ ! -f $(command -v yum) ]] || sudo yum install -y util-linux-user zsh git curl
+[[ ! -f $(command -v dnf) ]] || sudo dnf install -y util-linux-user zsh git curl
 [[ ! -f $(command -v apt) ]] || sudo apt install -y zsh git curl
 
 [[ $(command -v zsh) ]] || { echo "Install ZSH first!"; exit 1; }
@@ -31,7 +31,7 @@ cat $EXEC_HOME/config/zshrc.end >> $HOME/.zshrc
 sed -i 's/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"powerlevel10k\/powerlevel10k\"/' $HOME/.zshrc
 
 echo "Set plugins..."
-sed -i 's/plugins=(git)/plugins=(safe-paste git zsh-completions zsh-autosuggestions zsh-syntax-highlighting)/' $HOME/.zshrc
+sed -i 's/plugins=(git)/plugins=(git zsh-completions zsh-autosuggestions zsh-syntax-highlighting)/' $HOME/.zshrc
 
 echo "Copy settings..."
 cp $EXEC_HOME/config/p10k.zsh $HOME/.p10k.zsh

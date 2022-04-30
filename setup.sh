@@ -22,6 +22,7 @@ git clone https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv.git ${ZSH
 
 echo "Backup '.zshrc' as '.zshrc.bak'..."
 cp $HOME/.zshrc $HOME/.zshrc.bak
+cp $HOME/.bash_history $HOME/.zsh_history
 
 echo "Set theme powerlevel10k..."
 #echo "$(cat $HOME/init_linux/zshrc.top)"$'\n'"$(cat $HOME/.zshrc)" > $HOME/.zshrc
